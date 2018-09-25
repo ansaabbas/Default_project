@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Student>
+<br />
+
+<a href="/Student/CreateStudent" class="btn btn-warning">Add new student</a>
+<br />
+<h1>Total Students: @Model.Count()</h1>
+
+<table id="ourtable" name="ourtable" class="table table-bordered">
+
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Class</td>
+            <td>
+                RollNo
+            </td>
+            <td>
+               Subject
+            </td>
+
+            <td> Email</td>
+
+            <td>
+                Gpa
+            </td>
+
+            <td>
+                Cv
+            </td>
+
+
+            <td>Actions</td>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (Student S in Model)
+        {
+        <tr>
+            <td>
+                @S.Id
+            </td>
+            <td>
+                @S.Name
+            </td>
+            <td>
+                @S.Class
+            </td>
+            <td>
+                @S.RollNo
+            </td>
+            <td>
+                @S.Subject
+            </td>
+
+            <td> @S.Email</td>
+
+            <td>
+                @S.Gpa
+            </td>
+
+            <td>
+                @S.Cv
+            </td>
+<td>
+            <a href="/Student/StudentDetail?Id=@S.Id" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-ok"></span>Detail</a>
+            <a href="/Student/DeleteStudent?Id=@S.Id" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+    </td>       
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+@section abc
+    {
+    <script>
+
+        $(function () {
+
+            $('#ourtable').DataTable();
+         
+            $('#nb').draggable();
+            $('#dob').datepicker();
+        });
+
+    </script>
+
+
+}
+

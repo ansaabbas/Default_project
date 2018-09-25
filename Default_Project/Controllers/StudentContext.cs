@@ -2,5 +2,6 @@
 {
     public class StudentContext
     {
+        public object Student { get; internal set; }
     }
 }
